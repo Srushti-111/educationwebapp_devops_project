@@ -8,8 +8,8 @@ pipeline {
     }
 
     environment {
-        DOCKER_IMAGE = 'nanducjc123/educationapprepo'
-        SONAR_HOST = 'http://13.50.232.101:9000'
+        DOCKER_IMAGE = 'srushhg/educationapprepo'
+        SONAR_HOST = 'http://13.233.198.213:9000'
         CONTAINER_NAME = 'educationapp'
         APP_PORT = '8080'
     }
@@ -18,8 +18,8 @@ pipeline {
 
         stage('Git Checkout') {
             steps {
-                git branch: 'master',
-                    url: 'https://github.com/cjcnkolhe/educationapp.git'
+                git branch: 'main',
+                    url: 'https://github.com/Srushti-111/educationwebapp_devops_project.git'
             }
         }
 
@@ -96,7 +96,7 @@ pipeline {
             --name educationapp \
             --restart unless-stopped \
             -p 8081:8080 \
-            nanducjc123/educationapprepo:latest
+            srushhg/educationapprepo
 
             docker ps
         '''
